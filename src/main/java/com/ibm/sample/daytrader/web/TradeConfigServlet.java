@@ -27,6 +27,7 @@ import com.ibm.sample.daytrader.utils.Log;
 import com.ibm.sample.daytrader.utils.TradeConfig;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * TradeConfigServlet provides a servlet interface to adjust DayTrader runtime parameters.
@@ -76,7 +77,7 @@ public class TradeConfigServlet extends HttpServlet {
         try
         {
             runStatsData = new TradeAction().resetTrade(false);
-            
+
             req.setAttribute("runStatsData", runStatsData);
             req.setAttribute("tradeConfig", currentConfig);
             results += "Trade Reset completed successfully";                        

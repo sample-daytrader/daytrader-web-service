@@ -257,7 +257,7 @@
 				<daytraderTruststoreLocation>${daytraderKeystoreFolder}/truststore.jks</daytraderTruststoreLocation>
 				<daytraderTruststorePassword>password</daytraderTruststorePassword>
 				<!-- Port -->
-				<serverPort>8080</serverPort>
+				<serverPort>5443</serverPort>
 				<databaseDriver>org.apache.derby.jdbc.EmbeddedDriver</databaseDriver>
 				<databaseUrl>jdbc:derby:tradesdb;create=true</databaseUrl>
 
@@ -315,7 +315,6 @@
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
-							<fork>true</fork>
 							<mainClass>com.ibm.sample.daytrader.web.DaytraderWebApplication</mainClass>
 						</configuration>
 					</plugin>
@@ -450,7 +449,7 @@
 
 									<run>
 										<ports>
-											<port>5443:8080</port>
+											<port>5443:${serverPort}</port>
 										</ports>
 										<wait>
 											<log>Started DaytraderWebApplication</log>
@@ -460,23 +459,6 @@
 								</image>
 							</images>
 						</configuration>
-						<executions>
-							<execution>
-								<id>default</id>
-								<phase>package</phase>
-								<goals>
-									<goal>build</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>deploy</id>
-								<phase>deploy</phase>
-								<goals>
-									<goal>build</goal>
-									<goal>push</goal>
-								</goals>
-							</execution>
-						</executions>
 					</plugin>
 				</plugins>
 			</build>
