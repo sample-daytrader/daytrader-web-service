@@ -29,3 +29,6 @@ hs_err_pid*
 .gradle
 target/
 .DS_Store
+target
+target/*
+target/**/*
