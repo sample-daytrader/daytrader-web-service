@@ -78,7 +78,6 @@ public class GatewayRemoteCallService extends BaseRemoteCallService
 	public RunStatsDataBean resetTrade(boolean deleteAll) throws Exception
 	{
 		String url = gatewayServiceRoute + "/admin/resetTrade?deleteAll=" + deleteAll;
-		System.out.println(url);
 		Log.debug("GatewayRemoteCallService.resetTrade() - " + url);
 		String responseEntity = invokeEndpoint(url, "GET", null); // Entity must be null for http method GET.
 		RunStatsDataBean runStatsData = mapper.readValue(responseEntity,RunStatsDataBean.class);
