@@ -35,6 +35,7 @@ import java.util.Collection;
 import com.ibm.sample.daytrader.entities.*;
 import com.ibm.sample.daytrader.utils.TradeConfig;
 // spring
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -67,7 +68,8 @@ public class GatewayRemoteCallService extends BaseRemoteCallService
 
 //
 //  - Naming convention based service discovery 
-	private static String gatewayServiceRoute = System.getenv("DAYTRADER_GATEWAY_SERVICE");
+	@Value("${daytrader.services.gateway}")
+	private static String gatewayServiceRoute;
 	   
 	   
 	   /**
