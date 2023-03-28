@@ -56,18 +56,18 @@ public class GatewayRemoteCallService extends BaseRemoteCallService
 	protected static ObjectMapper mapper = null;
 //
 //  - Naming convention based service discovery
-	private static String gatewayServiceRoute;
+	private static String gatewayServiceRoute = "http://localhost:2443";
 
 	static
 	{
 		mapper = new ObjectMapper(); // create once, reuse
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // ignore properties that are not declared
 	}
-
-	@Value("${daytrader.services.gateway}")
-	public void setGatewayServiceRoute(String route) {
-		gatewayServiceRoute = route;
-	}
+//
+//	@Value("${daytrader.services.gateway}")
+//	public void setGatewayServiceRoute(String route) {
+//		gatewayServiceRoute = route;
+//	}
 
 
    /**
