@@ -28,12 +28,8 @@ import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.RedirectionException;
 import javax.ws.rs.ServerErrorException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.client.*;
 import javax.ws.rs.core.Response;
-
 import org.glassfish.jersey.client.ClientProperties;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 
@@ -116,8 +112,8 @@ public class BaseRemoteCallService {
     public static Response sendRequest(String url, String method, String body, int connTimeOut) 
     {
     	// Jersey client doesn't support the Http PATCH method without this workaround
-        Client client = ClientBuilder.newClient()
-        		.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
+        Client client = ClientBuilder.newClient();
+//        		.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
         
         if (connTimeOut > 0)
         {
@@ -125,8 +121,7 @@ public class BaseRemoteCallService {
         }
         
         WebTarget target = client.target(url);
-		System.out.println(target.toString());
-        Response response = target.request().method(method, Entity.json(body));
-        return response;
+		Response response = target.request().method(method, Entity.json(body));
+		return response;
     }
 }
