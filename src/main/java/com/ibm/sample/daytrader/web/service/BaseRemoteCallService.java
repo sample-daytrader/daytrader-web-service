@@ -112,8 +112,7 @@ public class BaseRemoteCallService {
     public static Response sendRequest(String url, String method, String body, int connTimeOut) 
     {
     	// Jersey client doesn't support the Http PATCH method without this workaround
-        Client client = ClientBuilder.newClient();
-//        		.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
+        Client client = ClientBuilder.newClient().property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
         
         if (connTimeOut > 0)
         {
