@@ -120,6 +120,7 @@ public class BaseRemoteCallService {
         }
         
         WebTarget target = client.target(url);
+		System.out.println(target.toString());
 		Response response = target.request().method(method, Entity.json(body));
 		return response;
     }

@@ -27,7 +27,7 @@
 	<groupId>com.ibm.sample.daytrader</groupId>
 	<artifactId>web-service</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
